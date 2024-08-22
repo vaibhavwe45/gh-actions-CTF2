@@ -29,3 +29,11 @@ jobs:
       run: |
         python ctf2/hospital/manage.py test
     - uses: actions/checkout@v3
+    - include:
+        - template: Jobs/SAST.gitlab-ci.yml
+    - name: Bandit
+      script:
+        - bandit -r ctf2/hospital -f json -o bandit_report.json
+      artifacts:
+        paths:
+          - bandit_report.json
