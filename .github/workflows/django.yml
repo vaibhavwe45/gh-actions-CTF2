@@ -28,3 +28,11 @@ jobs:
     - name: Run Tests
       run: |
         python manage.py test
+    - name: Run Bandit
+      run: |
+        bandit -r ctf2/hospital -f json -o bandit_report.json
+    - name: Upload Bandit Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: bandit_report
+        path: bandit_report.json
