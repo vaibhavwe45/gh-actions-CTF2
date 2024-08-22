@@ -30,7 +30,7 @@ jobs:
         python manage.py test
     - include:
         - template: Jobs/SAST.gitlab-ci.yml
-    - name: Bandit
+    - name: Run Bandit
       run: |
         bandit -r ctf2/hospital -f json -o bandit_report.json
     - name: Upload Bandit Report
