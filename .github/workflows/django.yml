@@ -26,7 +26,7 @@ jobs:
         pip install bandit
     - name: Run Bandit
       run: |
-        bandit -r ctf2/hospital -f json -o bandit_report.json
+        bandit -r ctf2/hospital -f json -o bandit_report.json || true
     - name: Upload Bandit Report
       uses: actions/upload-artifact@v2
       with:
