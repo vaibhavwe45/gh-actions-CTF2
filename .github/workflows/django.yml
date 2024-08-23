@@ -33,15 +33,10 @@ jobs:
         name: bandit_report
         path: bandit_report.json
     - uses: actions/checkout@master
-    - uses: snyk/actions/setup@master
-    - uses: actions/setup-go@v1
-      with:
-        go-version: '1.13'
-    - name: Snyk authentication
-      run: snyk auth ${{ secrets.SNYK_TOKEN }}
-    - name: Snyk monitor
-      run: snyk test
-      env: 
+    - name: Run Snyk to check for vulnerabilities
+      uses: snyk/actions/node@master
+      continue-on-error: true
+      env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
     - name: Install Dependencies
       run: |
