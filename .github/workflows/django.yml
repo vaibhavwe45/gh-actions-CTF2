@@ -33,7 +33,7 @@ jobs:
         name: bandit_report
         path: bandit_report.json
     - name: Run Snyk to check for vulnerabilities
-      uses: snyk/actions/python-3.7@master
+      uses: synk/actions/python-3.7@master
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
     - name: Install Dependencies
