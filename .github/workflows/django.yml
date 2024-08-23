@@ -33,7 +33,7 @@ jobs:
         name: bandit_report
         path: bandit_report.json
     - uses: actions/checkout@master
-    - name: Run to check for vulnerabilities
+    - name: Run synk check for vulnerabilities
       uses: snyk/actions/python@master
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
