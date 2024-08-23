@@ -28,13 +28,13 @@ jobs:
       run: |
         bandit -r ctf2/hospital -f json -o bandit_report.json || true
     - name: Upload Bandit Report
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: bandit_report
         path: bandit_report.json
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     - name: Run Snyk to check for vulnerabilities
-      uses: snyk/actions/node@master
+      uses: snyk/actions/node@main
       continue-on-error: true
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
