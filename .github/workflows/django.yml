@@ -34,7 +34,7 @@ jobs:
         path: bandit_report.json
     - uses: actions/checkout@main
     - name: Run Snyk to check for vulnerabilities
-      uses: snyk/actions/node@main
+      uses: snyk/actions/node@v1.0.0
       continue-on-error: true
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
